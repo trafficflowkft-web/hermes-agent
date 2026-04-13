@@ -60,5 +60,11 @@ fi
 if [ -d "$INSTALL_DIR/skills" ]; then
     python3 "$INSTALL_DIR/tools/skills_sync.py"
 fi
+# Apply HERMES_MODEL env var to config if set
+if [ -n "$HERMES_MODEL" ]; then
+    sed -i "s|default:.*|default: \"$HERMES_MODEL\"|" "$HERMES_HOME/config.yaml"
+fi
+
+exec hermes "$@"
 
 exec hermes "$@"
