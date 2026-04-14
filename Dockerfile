@@ -32,7 +32,8 @@ RUN npm install --prefer-offline --no-audit && \
     cd /opt/hermes/scripts/whatsapp-bridge && \
     npm install --prefer-offline --no-audit && \
     npm cache clean --force && \
-    npm install -g @nousresearch/gws
+    npm install -g @googleworkspace/cli
+
 
 # Hand ownership to hermes user, then install Python deps in a virtualenv
 RUN chown -R hermes:hermes /opt/hermes
